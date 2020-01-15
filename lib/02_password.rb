@@ -1,16 +1,29 @@
 def sign_up
   puts "Entrez votre mot de passe :"
-  password = gets.chomp
+  gets.chomp
 end
 
-def connection
-  login = ""
-  while login != password
-    puts "Veuillez vérifier votre mot de passe"
-    password = gets.chomp
+def login(password) 
+  mdp = ""
+  while password != mdp
+    puts "Veuillez saisir votre mot de passe"
+    print "> "
+    mdp = gets.chomp
+    if mdp != password
+      puts "Dommage, mauvais mot de passe..."
+    end
   end
-  puts "bravo"
 end
 
-sign_up
-connection
+def welcome_screen
+  puts "Bravo bravo bravo !"
+end
+
+
+def perform
+  password = sign_up
+  login(password)
+  welcome_screen
+end
+
+perform
